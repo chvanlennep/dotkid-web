@@ -1,0 +1,16 @@
+.genericButton {
+  width: calc(100% - 15px);
+  height: 80px;
+  background-color: #828282;
+  border-radius: 8px;
+  margin: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  display: inherit;
+  align-items: inherit;
+  justify-content: inherit;
+}
+
+.genericButton:hover {
+  background-color: #686868;
+}

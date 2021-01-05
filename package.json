@@ -1,0 +1,33 @@
+{
+  "name": "dotkid-web",
+  "version": "0.0.1",
+  "description": "Paediatric and neonatal calculator for UK based clinicians",
+  "main": "index.js",
+  "scripts": {
+    "start": "snowpack dev",
+    "build": "snowpack build",
+    "parse": "node svgParser.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chvanlennep/dotkid-web.git"
+  },
+  "author": "Charles van Lennep",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/chvanlennep/dotkid-web/issues"
+  },
+  "homepage": "https://github.com/chvanlennep/dotkid-web#readme",
+  "dependencies": {
+    "@material-ui/icons": "^4.11.2",
+    "snowpack": "^2.18.5"
+  },
+  "devDependencies": {
+    "@mdi/svg": "^5.8.55",
+    "fs": "0.0.1-security",
+    "prompts": "^2.4.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "xml2json": "^0.12.0"
+  }
+}
