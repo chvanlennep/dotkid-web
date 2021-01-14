@@ -1,0 +1,74 @@
+{
+  "404": { "id": "404", "name": "Page Not Found", "path": null },
+  "child": [
+    {
+      "id": "age",
+      "name": "Age Calculator",
+      "pascalCase": "Age",
+      "path": "/child/age"
+    },
+    {
+      "id": "bp",
+      "name": "Blood Pressure Calculator",
+      "pascalCase": "Bp",
+      "path": "/child/bp"
+    },
+    {
+      "id": "bsa",
+      "name": "Body Surface Area Calculator",
+      "pascalCase": "Bsa",
+      "path": "/child/bsa"
+    },
+    {
+      "id": "child-centile",
+      "name": "Child Centile Calculator",
+      "pascalCase": "ChildCentile",
+      "path": "/child/child-centile"
+    },
+    { "id": "qtc", "name": "QTc Calculator", "path": "/child/qtc" },
+    {
+      "id": "iv-fluid",
+      "name": "IV Fluid Calculator",
+      "pascalCase": "IvFluid",
+      "path": "/child/iv-fluid"
+    },
+    {
+      "id": "wet-flag",
+      "name": "WETFLAG Calculator",
+      "pascalCase": "WetFlag",
+      "path": "/child/wet-flag"
+    }
+  ],
+  "neonate": [
+    {
+      "id": "cga",
+      "name": "Corrected Gestation Calculator",
+      "pascalCase": "Cga",
+      "path": "/neonate/cga"
+    },
+    {
+      "id": "birth-centile",
+      "name": "Birth Centile Calculator",
+      "pascalCase": "BirthCentile",
+      "path": "/neonate/birth-centile"
+    },
+    {
+      "id": "preterm-centile",
+      "name": "Preterm Centile Calculator",
+      "pascalCase": "PretermCentile",
+      "path": "/neonate/preterm-centile"
+    },
+    {
+      "id": "neonate-fluid",
+      "name": "Fluid Requirement Calculator",
+      "pascalCase": "NeonateFluid",
+      "path": "/neonate/neonate-fluid"
+    },
+    {
+      "id": "jaundice",
+      "name": "Jaundice Calculator",
+      "pascalCase": "Jaundice",
+      "path": "/neonate/jaundice"
+    }
+  ]
+}

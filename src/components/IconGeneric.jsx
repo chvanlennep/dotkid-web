@@ -1,7 +1,7 @@
 import React from 'react';
 import info from '../assets/svgInfo.json';
 
-const GenericIcon = ({ iconName, size, fill }) => {
+const IconGeneric = ({ iconName, size, fill }) => {
   if (!info[iconName]) {
     console.log(
       'Icon name not found, have you remembered to run the svg parser?'
@@ -20,4 +20,4 @@ const GenericIcon = ({ iconName, size, fill }) => {
   );
 };
 
-export default GenericIcon;
+export default IconGeneric;
