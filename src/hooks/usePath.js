@@ -6,21 +6,21 @@ const usePath = () => {
   const { pathname } = useLocation();
   const initialState = {
     path: pathname,
-    kind: pathname.charAt(1) === 'n' ? 'neonate' : null,
+    kind: pathname.charAt(1) === 'n' ? 'neonate' : '',
     previousOtherKindPath: null,
-    changed: false,
+    changePath: false,
   };
 
   const [state, setState] = useState(initialState);
 
-  const handleSwitchClick = (changed = true) => {
+  const handleSwitchClick = (change = true) => {
     if (state.kind === 'child' || !state.kind) {
       setState((oldState) => {
         const mutableState = { ...oldState };
         mutableState.path = mutableState.previousOtherKindPath || '/neonate';
         mutableState.kind = 'neonate';
         mutableState.previousOtherKindPath = `${pathname}`;
-        mutableState.changed = changed ? true : false;
+        mutableState.changePath = change ? true : false;
         return mutableState;
       });
     } else if (state.kind === 'neonate') {
@@ -29,17 +29,17 @@ const usePath = () => {
         mutableState.path = mutableState.previousOtherKindPath || '/child';
         mutableState.kind = 'child';
         mutableState.previousOtherKindPath = `${pathname}`;
-        mutableState.changed = changed ? true : false;
+        mutableState.changePath = change ? true : false;
         return mutableState;
       });
     }
   };
 
   useEffect(() => {
-    if (state.changed) {
+    if (state.changePath) {
       history.push(state.path);
       setState((oldState) => {
-        const mutableState = { ...oldState, ...{ changed: false } };
+        const mutableState = { ...oldState, ...{ changePath: false } };
         return mutableState;
       });
     } else if (

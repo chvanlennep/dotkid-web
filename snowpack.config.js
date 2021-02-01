@@ -22,11 +22,10 @@ module.exports = {
     // treeshake: true,
   },
   packageOptions: {
-    /* ... */
+    source: 'local',
   },
   devOptions: {
     open: 'chrome',
-    fallback: 'index.html',
   },
   buildOptions: {
     /* ... */

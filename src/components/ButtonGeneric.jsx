@@ -1,17 +1,22 @@
 import React from 'react';
-import styled, { css, keyframes } from 'styled-components';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-import cssVar from '../brains/cssVar';
+import { colorsInJs, Div, fadeAnimation } from '../config/sharedStyles';
 
 const ButtonGeneric = ({
   backgroundColor,
   children,
+  hover = true,
+  hoverColor,
   fade = false,
   onClick,
 }) => {
   return (
     <ButtonContainer
       backgroundColor={backgroundColor}
+      hover={hover}
+      hoverColor={hoverColor}
       onClick={onClick}
       fade={fade}
     >
@@ -20,34 +25,29 @@ const ButtonGeneric = ({
   );
 };
 
-const fadeIn = keyframes`
-{
-  0% {opacity:0;}
-  100% {opacity:1;}
-  }
-`;
-
-const animation = css`
-  ${fadeIn} ease 0.5s
-`;
-
-const ButtonContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: calc(100% - 25px);
-  height: 80px;
+const ButtonContainer = styled(Div)`
+  width: 370px;
+  min-height: 76px;
   background-color: ${({ backgroundColor }) =>
-    backgroundColor ? backgroundColor : cssVar('--global-medium')};
+    backgroundColor ? backgroundColor : colorsInJs.medium};
   border-radius: 8px;
   margin: auto;
   margin-top: 5px;
   margin-bottom: 5px;
-  animation: ${({ fade }) => (fade ? animation : 'none')};
+  animation: ${({ fade }) => (fade ? fadeAnimation : 'none')};
   &:hover {
-    background-color: ${({ backgroundColor }) =>
-      backgroundColor ? backgroundColor : cssVar('--global-dark-medium')};
+    background-color: ${({ hoverColor, hover }) =>
+      hoverColor ? hoverColor : hover && colorsInJs.darkMedium};
   }
 `;
+
+ButtonGeneric.propTypes = {
+  children: PropTypes.node,
+  backgroundColor: PropTypes.string,
+  hover: PropTypes.bool,
+  hoverColor: PropTypes.string,
+  fade: PropTypes.bool,
+  onClick: PropTypes.func,
+};
 
 export default ButtonGeneric;

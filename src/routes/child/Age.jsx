@@ -1,10 +1,37 @@
 import React from 'react';
-import styled from 'styled-components';
+import DateTimeComponent from '../../components/pickers/DateTimeComponent';
+import { ValidatorProvider } from '../../components/Validator';
+
+import { CalcHolder, CalcSideBox } from '../../config/sharedStyles';
 
 const Age = () => {
-  return <Container>Testing Age</Container>;
+  const proforma = {
+    dob: {
+      type: {
+        param: 'dateObject',
+        message: 'Please enter a valid Date of Birth',
+      },
+      isRequired: {
+        param: true,
+        message: 'Please enter a valid Date of Birth',
+      },
+      nullable: {
+        param: true,
+      },
+    },
+  };
+  return (
+    <ValidatorProvider
+      customSubmitFunction={() => alert('submitted')}
+      validationProforma={proforma}
+    >
+      <CalcHolder>
+        <CalcSideBox fullScreen>
+          <DateTimeComponent kind="child" type="birth" />
+        </CalcSideBox>
+      </CalcHolder>
+    </ValidatorProvider>
+  );
 };
-
-const Container = styled.div``;
 
 export default Age;

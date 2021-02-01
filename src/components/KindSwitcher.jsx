@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import cssVar from '../brains/cssVar';
+import PropTypes from 'prop-types';
 
+import cssVar from '../brains/cssVar';
 import IconGeneric from './IconGeneric';
 import Toggle from './Toggle';
 
@@ -33,7 +34,12 @@ const KindSwitcher = ({ kind, handleClick }) => {
   return (
     <Container>
       <div onClick={() => handleIconClick('face')}>
-        <IconGeneric iconName="face" size={40} fill={iconColor('face')} />
+        <IconGeneric
+          iconName="face"
+          size={40}
+          fill={iconColor('face')}
+          hover={false}
+        />
       </div>
       <Toggle handleClick={handleClick} toggle={toggle} />
       <div onClick={() => handleIconClick('baby-face-outline')}>
@@ -41,6 +47,7 @@ const KindSwitcher = ({ kind, handleClick }) => {
           iconName="baby-face-outline"
           size={40}
           fill={iconColor('baby-face-outline')}
+          hover={false}
         />
       </div>
     </Container>
@@ -52,5 +59,10 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
 `;
+
+KindSwitcher.propTypes = {
+  kind: PropTypes.string,
+  handleClick: PropTypes.func.isRequired,
+};
 
 export default KindSwitcher;

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { css, keyframes } from 'styled-components';
+import PropTypes from 'prop-types';
 
 import cssVar from '../brains/cssVar';
 
@@ -11,11 +12,11 @@ const Toggle = ({
   scaleFactor = 1,
   toggle,
 }) => {
-  if (Array.isArray(onColors)) {
+  if (onColors) {
     onDark = onColors[0];
     onLight = onColors[1];
   }
-  if (Array.isArray(offColors)) {
+  if (offColors) {
     offDark = offColors[0];
     offLight = offColors[1];
   }
@@ -133,5 +134,14 @@ const ToggleButton = styled.div`
   box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.25);
   animation: ${(props) => animation(props)};
 `;
+
+Toggle.propTypes = {
+  animated: PropTypes.bool,
+  handleClick: PropTypes.func.isRequired,
+  onColors: PropTypes.array,
+  offColors: PropTypes.array,
+  scaleFactor: PropTypes.number,
+  toggle: PropTypes.string,
+};
 
 export default Toggle;

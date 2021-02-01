@@ -1,10 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import pages from '../routes/pages.json';
 import KindSwitcher from './KindSwitcher';
 import NavButton from './NavButton';
 import usePath from '../hooks/usePath';
+import ErrorBoundary from '../brains/ErrorBoundary';
+import { Div } from '../config/sharedStyles';
 
 const AppWrapper = ({ children }) => {
   const { state, handleSwitchClick } = usePath();
@@ -20,37 +23,33 @@ const AppWrapper = ({ children }) => {
           <KindSwitcher kind={state.kind} handleClick={handleSwitchClick} />
           <ButtonContainer>{navigateButtons}</ButtonContainer>
         </SelectorContainer>
-        <CalculatorContainer>{children}</CalculatorContainer>
+        <CalculatorContainer>
+          <ErrorBoundary>{children}</ErrorBoundary>
+        </CalculatorContainer>
       </AppContainer>
     </AppWindow>
   );
 };
 
-const AppWindow = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+const AppWindow = styled(Div)`
   flex-direction: column;
 `;
 
-const AppContainer = styled.div`
-  display: inherit;
-  align-items: inherit;
-  justify-content: inherit;
+const AppContainer = styled(Div)`
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: 15px;
 `;
 
-const SelectorContainer = styled.div`
-  width: 30vw;
+const SelectorContainer = styled(Div)`
+  width: 395px;
   height: 98vh;
+  max-height: 1000px;
   background-color: var(--global-light);
-  display: flex;
   flex-direction: column;
 `;
 
-const ButtonContainer = styled.div`
-  display: flex;
+const ButtonContainer = styled(Div)`
+  width: 100%;
   flex-grow: 1;
   flex-direction: column;
   overflow-y: scroll;
@@ -58,15 +57,18 @@ const ButtonContainer = styled.div`
   padding-bottom: 5px;
 `;
 
-const CalculatorContainer = styled.div`
-  width: 68vw;
+const CalculatorContainer = styled(Div)`
+  width: calc(98vw - 395px);
+  max-width: 1100px;
   height: 98vh;
-  background-color: var(--global-calc-background);
+  max-height: 1000px;
+  background-color: var(--global-medium);
   color: var(--global-medium);
-  display: inherit;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
 `;
+
+AppWrapper.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export default AppWrapper;

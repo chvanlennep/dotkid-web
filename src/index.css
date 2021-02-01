@@ -3,6 +3,7 @@ body {
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 18px;
 }
 
 #root {
@@ -13,6 +14,7 @@ body {
   --global-color-secondary-light: #c4e9d1;
   --global-color-primary-dark: #b7181d;
   --global-color-secondary-dark: #006632;
+  --global-darkest: #3b3b3b;
   --global-dark: #4f4f4f;
   --global-dark-medium: #686868;
   --global-medium: #828282;

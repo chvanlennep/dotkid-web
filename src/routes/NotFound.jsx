@@ -11,10 +11,12 @@ const NotFound = () => {
 };
 
 const Heading = styled.h2`
-  color: var(--global-dark);
+  color: white;
 `;
 
-const Para = styled.p``;
+const Para = styled.p`
+  color: white;
+`;
 
 const Container = styled.div`
   text-align: center;

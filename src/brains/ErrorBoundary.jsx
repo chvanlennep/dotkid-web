@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 class ErrorBoundary extends React.Component {
@@ -7,7 +8,7 @@ class ErrorBoundary extends React.Component {
     this.state = { hasError: false };
   }
 
-  static getDerivedStateFromError(error) {
+  static getDerivedStateFromError() {
     // Update state so the next render will show the fallback UI.
     return { hasError: true };
   }
@@ -28,12 +29,18 @@ class ErrorBoundary extends React.Component {
 }
 
 const Container = styled.h1`
+  display: flex;
+  align-items: center;
   text-align: center;
-  width: 200px;
-  height: 100px;
+  width: 400px;
+  height: 300px;
   color: red;
   background-color: black;
   border-radius: 10px;
 `;
+
+ErrorBoundary.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export default ErrorBoundary;
